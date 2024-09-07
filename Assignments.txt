@@ -1,0 +1,2 @@
+What is CDN (Content Delivery Network), how and why we use them?
+What is CDN crossorigin, how and why we use them?
