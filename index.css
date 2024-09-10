@@ -1,3 +1,136 @@
-#heading{
-    color:red;
+/* General Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+}
+
+.logo {
+    font-size: 1.5em;
+}
+
+.navbar {
+    display: flex;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+}
+
+.main-content {
+    padding: 20px;
+}
+
+.search-bar {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.search-bar input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+}
+
+.search-bar button {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-left: none;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+    border-radius: 0 4px 4px 0;
+}
+
+.search-bar button:hover {
+    background-color: #555;
+}
+
+.res-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card-container {
+    flex: 1;
+    min-width: 200px;
+    max-width: 300px;
+}
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: white;
+}
+
+.card-image {
+    width: 100%;
+    height: auto;
+}
+
+.card-content {
+    padding: 10px;
+}
+
+.card-title {
+    font-size: 1.2em;
+    margin: 0;
+}
+
+.card-description {
+    font-size: 0.9em;
+    color: #666;
+}
+
+.card-details {
+    margin-top: 10px;
+}
+
+.card-rating, .card-cost, .card-time {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.footer-links {
+    margin-bottom: 10px;
+}
+
+.footer-link {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
+
+.footer-copyright {
+    margin: 0;
 }
