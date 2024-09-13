@@ -1,6 +1,10 @@
 import RestaurantCard from "./RestaurantCard";
 import mokData from "../utils/mokdata";
+import { useState } from "react";
 const HomeRestaurants = () =>{
+    const [list, setList] = useState(mokData);
+    console.log(list);
+    
     return (
         <main className="main-content">
             <div className="search-bar">
@@ -8,13 +12,13 @@ const HomeRestaurants = () =>{
                 <button type="button">Search</button>
             </div>
             <div className="col-md-12">
-                <button className="filter-btn" onClick={ ()=>{
-                    console.log("Button Clikced");
-                    
+                <button className="filter-btn" onClick={()=>{
+                    const newList = list.filter(res=> res.rating >= 4);
+                    setList(newList);
                 }}>Top Rated Restaurant</button>
             </div>
             <div className='res-container'>
-                    {mokData.data.map((res, index) => (
+                    {list.map((res, index) => (
                         <RestaurantCard
                             key={index}
                             resData = {res}
