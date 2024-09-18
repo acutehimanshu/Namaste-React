@@ -2,7 +2,6 @@
   "name": "namaste-react",
   "version": "1.0.0",
   "description": "This is Namaste React First Project",
-  
   "scripts": {
     "test": "jest",
     "start": "parcel index.html",
@@ -29,9 +28,10 @@
   },
   "dependencies": {
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.2"
   },
-  "browserslist":[
+  "browserslist": [
     "last 2 versions"
   ]
 }
