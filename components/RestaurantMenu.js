@@ -3,9 +3,11 @@ import SimmerUIResList from './SimmerUIResList';
 import { MENU_URL } from "../utils/constents";
 import { useParams } from "react-router-dom";
 import Error from './Error';
+import useRestaurantMenu from "../utils/useRestaurantMenu";
 
 const RestaurantMenu = () => {
     const {id} = useParams();
+/*
     const [resInfo, setResInfo] = useState(null);
     const [menus, setMenus] = useState(null);
     const [error, setError] = useState(false);
@@ -31,7 +33,12 @@ const RestaurantMenu = () => {
     useEffect(()=>{
         fetchMenu();
     },[]);
-    return (resInfo == null)?<SimmerUIResList />:(<>
+*/
+    const resData = useRestaurantMenu(id);
+    if (resData == null) return <SimmerUIResList />;
+    const resInfo = resData?.cards[2]?.card?.card?.info;
+    const menus = resData?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards;
+    return (<>
         <h1>
             {resInfo.name}
         </h1>
