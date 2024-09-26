@@ -2,6 +2,7 @@ import RestaurantCard from "./RestaurantCard";
 
 import { useEffect, useState } from "react";
 import SimmerUIResList from "./SimmerUIResList";
+import { Link } from "react-router-dom";
 const HomeRestaurants = () =>{
     const [list, setList] = useState([]);
     const [resList, setResList] = useState([])
@@ -44,11 +45,10 @@ const HomeRestaurants = () =>{
             </div>
             <div className='res-container'>
                     {resList.map((res, index) => (
-                        <RestaurantCard
-                            key={index}
-                            resData = {res}
+                        <Link key={res.info.id} to={'restaurants/'+res.info.id}><RestaurantCard
                             
-                        />
+                            resData = {res}
+                        /></Link>
                     ))}
             </div>
             
