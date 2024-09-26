@@ -4,11 +4,11 @@
         // console.log(props.resData.resName);
         props = props?.resData;
         return (
-            <div className="card-container">
+            <div className="m-4 p-4 w-[250px] bg-gray-100 rounded-lg hover:bg-green-200">
                 <div className="card">
-                    <img src={'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/'+props.info.cloudinaryImageId} alt="Card Image" className="card-image" />
+                    <img src={'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/'+props.info.cloudinaryImageId} alt="Card Image" className="rounded-lg" />
                     <div className="card-content">
-                        <h2 className="card-title">{props.info.name}</h2>
+                        <h2 className="font-bold py-4 text-lg">{props.info.name}</h2>
                         <p className="card-description">{props.cousins}</p>
                         <div className="card-details">
                             <span className="card-rating">Rating: {props.info.avgRating}</span>

@@ -25,29 +25,36 @@ const HomeRestaurants = () =>{
         return <SimmerUIResList />
     }
     return (
-        <main className="main-content">
-            <div className="search-bar">
-                <input type="text" placeholder="Search..." value={searchText} onChange={(e)=>{
-                    setSearchText(e.target.value);
-                }}/>
-                <button type="button" onClick={()=>{
-                    
-                    const filtCards = list.filter((card)=> card.info.name.includes(searchText) );
-                    setResList(filtCards);
-                }}>Search</button>
-            </div>
-            <div className="col-md-12">
-                <button className="filter-btn" onClick={()=>{
-                    const filtCards = list.filter((card)=> {
-                        console.log(card.info.avgRating);
-                        return card.info.avgRating > 4.5; } );
-                    setResList(filtCards);
+        <main>
+            <div className="flex">
+                <div className="m-1 p-4 ">
+                    <input 
+                    className="border border-solid border-black"
+                    type="text" 
+                    placeholder="Search..." 
+                    value={searchText} 
+                    onChange={(e)=>{
+                        setSearchText(e.target.value);
+                    }}/>
+                    <button className=" m-4 py-1 px-4 bg-green-100 rounded-2xl" type="button" onClick={()=>{
+                        
+                        const filtCards = list.filter((card)=> card.info.name.includes(searchText) );
+                        setResList(filtCards);
+                    }}>Search</button>
+                </div>
+                <div className="m-1 p-4 flex items-center">
+                    <button className="bg-gray-200 px-4 py-1 rounded-2xl" onClick={()=>{
+                        const filtCards = list.filter((card)=> {
+                            console.log(card.info.avgRating);
+                            return card.info.avgRating > 4.5; } );
+                        setResList(filtCards);
 
-                    //const newList = list.filter(res=> res.rating >= 4);
-                    //setList(newList);
-                }}>Top Rated Restaurant</button>
+                        //const newList = list.filter(res=> res.rating >= 4);
+                        //setList(newList);
+                    }}>Top Rated Restaurant</button>
+                </div>
             </div>
-            <div className='res-container'>
+            <div className='flex flex-wrap'>
                     {resList.map((res, index) => (
                         <Link key={res.info.id} to={'restaurants/'+res.info.id}><RestaurantCard
                             
