@@ -9,6 +9,9 @@ import Contact from './components/Contact';
 import Error from './components/Error';
 import RestaurantMenu from './components/RestaurantMenu';
 import UserContext from './utils/UserContext';
+import { Provider } from 'react-redux';
+import appStore from './utils/appStore';
+import Cart from './components/Cart';
 // import Grocery from './components/Grocery'; // this will load in index.js 
 
 const Grocery= lazy(()=> import('./components/Grocery') );
@@ -17,23 +20,20 @@ const Grocery= lazy(()=> import('./components/Grocery') );
 const AppLayout = () =>{
     const {name} = useContext(UserContext);
     const [userName, setUserName] = useState(name);
-useEffect(()=>{
-    // suppose we called and api and get data like
-    const json = {"name":"Akshay Saini"};
-    setUserName(json.name);
-},[]);
-console.log(userName);
+    useEffect(()=>{
+        // suppose we called and api and get data like
+        const json = {"name":"Akshay Saini"};
+        setUserName(json.name);
+    },[]);
 
     return (
-        <div>
-            { console.log('userName: '+userName)
-             }
+        <Provider store={appStore}>
             <UserContext.Provider value={{name:userName, setUserName}}>
                 <Header />
                 <Outlet />
                 <Footer />
             </UserContext.Provider>
-        </div>
+        </Provider>
     )
 }
 
@@ -55,6 +55,10 @@ const appRouter = createBrowserRouter([
             {
                 path:"/contact",
                 element:<Contact />,
+            },
+            {
+                path:"/cart",
+                element:<Cart />,
             },
             {
                 path:"/restaurants/:id",
