@@ -20,4 +20,15 @@
             </div>
         );
     }
+
+    export const withPromotedLabel = (RestaurantCard)=>{
+        return (data)=>{
+            return(
+                <>
+                <label className="absolute p-4 bg-red-400 text-white">Recommended</label> 
+                <RestaurantCard {...data} />
+            </>
+            )
+        }
+    }
     export default RestaurantCard;
