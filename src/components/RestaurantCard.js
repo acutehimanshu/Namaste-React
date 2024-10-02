@@ -4,7 +4,7 @@
         // console.log(props.resData.resName);
         props = props?.resData;
         return (
-            <div className="m-4 p-4 w-[250px] bg-gray-100 rounded-lg hover:bg-green-200">
+            <div data-testid="resCardTest" className="m-4 p-4 w-[250px] bg-gray-100 rounded-lg hover:bg-green-200">
                 <div className="card">
                     <img src={'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/'+props.info.cloudinaryImageId} alt="Card Image" className="rounded-lg" />
                     <div className="card-content">

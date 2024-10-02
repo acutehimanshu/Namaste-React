@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import { LOGO_URL } from "../utils/constents";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import UserContext from "../utils/UserContext";
 import { useSelector } from "react-redux";
 
 
 const Header = () =>{
+    const [loginButton, setLoginButton] = useState('Login');
     const onlineStatus = useOnlineStatus();
     const {name} = useContext(UserContext);
     const cartItems = useSelector((store)=> store.cart.items)
@@ -23,6 +24,10 @@ const Header = () =>{
                     <li className="px-4"><Link to="/about" className="nav-link">About</Link></li>
                     <li className="px-4"><Link to="/grocery" className="nav-link">Grocery</Link></li>
                     <li className="px-4"><Link to="/contact" className="nav-link">Contact</Link></li>
+                    <li className="px-4"><button name={loginButton} className="nav-link" onClick={()=>{
+                        if(loginButton == "Login") setLoginButton("Logout"); 
+                        else setLoginButton("Login");
+                    }}>{loginButton}</button></li>
                     <li className="font-bold">Welcome, {name}</li>
                     <li className="mx-4"><Link to="/cart" className="nav-link">Cart (<span className="font-bold">{cartItems.length}</span> Items) </Link></li>
                 </ul>
