@@ -31,6 +31,7 @@ const HomeRestaurants = () =>{
             <div className="flex">
                 <div className="m-1 p-4 ">
                     <input 
+                    data-testid="SearchTextBox"
                     className="border border-solid border-black"
                     type="text" 
                     placeholder="Search..." 
@@ -38,11 +39,15 @@ const HomeRestaurants = () =>{
                     onChange={(e)=>{
                         setSearchText(e.target.value);
                     }}/>
-                    <button className=" m-4 py-1 px-4 bg-green-100 rounded-2xl" type="button" onClick={()=>{
-                        
-                        const filtCards = list.filter((card)=> card.info.name.includes(searchText) );
-                        setResList(filtCards);
-                    }}>Search</button>
+                    <button 
+                        name="Search" 
+                        className=" m-4 py-1 px-4 bg-green-100 rounded-2xl" 
+                        type="button" 
+                        onClick={()=>{
+                            const filtCards = list.filter((card)=> card.info.name.includes(searchText) );
+                            setResList(filtCards);
+                        }}
+                    >Search</button>
                 </div>
                 <div className="m-1 p-4 flex items-center">
                     <button className="bg-gray-200 px-4 py-1 rounded-2xl" onClick={()=>{
